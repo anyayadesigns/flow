@@ -47,26 +47,29 @@ const pad = (n) => String(n).padStart(2, '0')
 </script>
 
 <template>
-  <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-    <template v-if="!remaining.done">
+  <div class="flex justify-center">
+    <div
+      v-if="!remaining.done"
+      class="mx-auto grid max-w-md grid-cols-4 gap-2 sm:gap-4"
+    >
       <div
         v-for="unit in units"
         :key="unit.label"
-        class="flex min-w-[64px] flex-col items-center rounded-2xl bg-white/70 px-4 py-3 shadow-sm backdrop-blur sm:min-w-[88px]"
+        class="flex flex-col items-center rounded-xl bg-white/70 px-1 py-3 shadow-sm backdrop-blur sm:rounded-2xl sm:px-5 sm:py-4"
       >
         <span
-          class="text-3xl font-bold tabular-nums sm:text-4xl"
+          class="text-2xl font-bold tabular-nums sm:text-4xl"
           :class="accentClass"
         >
           {{ pad(unit.value) }}
         </span>
-        <span class="mt-1 text-xs font-medium uppercase tracking-wider text-slate-500">
+        <span class="mt-1 text-[0.55rem] font-medium uppercase tracking-tight text-slate-500 sm:text-xs sm:tracking-wider">
           {{ unit.label }}
         </span>
       </div>
-    </template>
+    </div>
     <p v-else class="text-lg font-semibold" :class="accentClass">
-      🎉 It's happening today!
+      It's happening today!
     </p>
   </div>
 </template>

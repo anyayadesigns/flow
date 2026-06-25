@@ -7,6 +7,7 @@ export const weddingDemo = {
   tagline: 'Together with their families, invite you to celebrate their wedding',
   date: '2026-12-12T15:00:00',
   dateLabel: 'December 12, 2026 · 3:00 PM',
+  heroImage: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=75&auto=format&fit=crop',
   venue: {
     name: 'San Agustin Church',
     address: 'General Luna St, Intramuros, Manila',
@@ -23,12 +24,24 @@ export const weddingDemo = {
     { time: '8:00 PM', title: 'First Dance' },
   ],
   entourage: [
+    {
+      role: 'Our Beloved Parents',
+      name: 'Ricardo M. Salvador †   ·   Alfonso D. Mendoza\nTeresa V. Salvador   ·   Lucia R. Mendoza',
+    },
+    {
+      role: 'Principal Sponsors',
+      name: 'Mr. & Mrs. Gregorio Villanueva\nMr. & Mrs. Rafael Aquino',
+    },
     { role: 'Maid of Honor', name: 'Andrea Santos' },
     { role: 'Best Man', name: 'Carlo Reyes' },
-    { role: 'Bridesmaids', name: 'Liza Cruz · Mae Tan · Joy Lim' },
-    { role: 'Groomsmen', name: 'Paolo Diaz · Rico Yu · Ken Sy' },
-    { role: 'Principal Sponsors', name: 'Mr. & Mrs. Villanueva · Mr. & Mrs. Aquino' },
+    { role: 'Bridesmaids', name: 'Liza Cruz   ·   Mae Tan   ·   Joy Lim' },
+    { role: 'Groomsmen', name: 'Paolo Diaz   ·   Rico Yu   ·   Ken Sy' },
+    { role: 'Officiating Priest', name: 'To be announced' },
   ],
+  story: {
+    image: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1200&q=75&auto=format&fit=crop',
+    text: "We first met at a friend's birthday party in Manila back in 2018 — one shared playlist and a long conversation later, we knew it was the start of something. Through countless memories, spontaneous trips, and quiet everyday moments, our love only grew stronger. And under a sky full of stars in early 2026, with both our families hiding nearby, Juan asked the question — and Maria said yes. Now, we can't wait to begin forever with all of you by our side.",
+  },
   // Placeholder sample photos — palitan ng totoong event photos (public/images).
   gallery: [
     'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=70&auto=format&fit=crop',
