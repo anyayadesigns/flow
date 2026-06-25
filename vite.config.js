@@ -10,7 +10,7 @@ export default defineConfig({
   // GitHub Pages: i-set ang DEPLOY_TARGET=gh-pages habang nagbu-build.
   // Vercel/Netlify/local: babalik sa '/'.
   base: process.env.DEPLOY_TARGET === 'gh-pages'
-    ? '/your-repo-name/' // <-- palitan ng eksaktong pangalan ng GitHub repo mo
+    ? '/flow/' // GitHub repo name (jedandsteph.github.io/flow/)
     : '/',
 
   resolve: {
