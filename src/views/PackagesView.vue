@@ -75,7 +75,9 @@ import { contact, mailtoInquiry } from '@/data/contact'
           </ul>
 
           <a
-            :href="mailtoInquiry"
+            :href="contact.email ? mailtoInquiry : contact.facebookUrl"
+            :target="contact.email ? null : '_blank'"
+            :rel="contact.email ? null : 'noopener'"
             class="mt-9 block rounded-full px-6 py-3.5 text-center text-sm font-medium tracking-wide transition"
             :class="tier.recommended
               ? 'bg-rosedust text-cream hover:bg-sage-deep'
@@ -87,10 +89,10 @@ import { contact, mailtoInquiry } from '@/data/contact'
       </div>
 
       <p class="mx-auto mt-10 max-w-md text-center text-sm text-bark/60">
-        Not sure which fits? Message us and we'll help you choose —
-        <a :href="contact.facebookUrl" target="_blank" rel="noopener" class="text-sage-deep underline underline-offset-4">on Facebook</a>
+        Not sure which fits? Message us and we'll help you choose
+        <a :href="contact.facebookUrl" target="_blank" rel="noopener" class="text-sage-deep underline underline-offset-4">on Facebook</a><template v-if="contact.email">
         or at
-        <a :href="mailtoInquiry" class="text-sage-deep underline underline-offset-4">{{ contact.email }}</a>.
+        <a :href="mailtoInquiry" class="text-sage-deep underline underline-offset-4">{{ contact.email }}</a></template>.
       </p>
 
       <div class="mt-12 text-center">

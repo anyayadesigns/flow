@@ -2,7 +2,7 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute, useRouter, RouterLink } from 'vue-router'
-import { mailtoInquiry } from '@/data/contact'
+import { contact, mailtoInquiry } from '@/data/contact'
 import { business } from '@/data/site'
 
 const route = useRoute()
@@ -77,11 +77,13 @@ const links = [
 
       <div class="flex items-center gap-2">
         <a
-          :href="mailtoInquiry"
+          :href="contact.email ? mailtoInquiry : contact.facebookUrl"
+          :target="contact.email ? null : '_blank'"
+          :rel="contact.email ? null : 'noopener'"
           class="hidden rounded-full px-5 py-2 text-xs font-medium uppercase tracking-[0.15em] transition-colors sm:inline-flex"
           :class="solid ? 'bg-sage text-cream hover:bg-sage-deep' : 'bg-cream/90 text-sage-deep hover:bg-cream'"
         >
-          Inquire
+          {{ contact.email ? 'Inquire' : 'Message us' }}
         </a>
 
         <!-- Hamburger (mobile only) -->
@@ -119,11 +121,13 @@ const links = [
           {{ l.label }}
         </button>
         <a
-          :href="mailtoInquiry"
+          :href="contact.email ? mailtoInquiry : contact.facebookUrl"
+          :target="contact.email ? null : '_blank'"
+          :rel="contact.email ? null : 'noopener'"
           class="mt-5 block rounded-full bg-sage px-6 py-3 text-center text-sm font-medium uppercase tracking-[0.15em] text-cream transition hover:bg-sage-deep"
           @click="open = false"
         >
-          Inquire
+          {{ contact.email ? 'Inquire' : 'Message us' }}
         </a>
       </nav>
     </Transition>

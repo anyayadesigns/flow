@@ -12,6 +12,7 @@ import { business } from '@/data/site'
 
       <div class="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
         <a
+          v-if="contact.email"
           :href="mailtoInquiry"
           class="inline-flex items-center gap-1.5 text-sage-deep underline-offset-4 transition hover:underline"
         >
@@ -20,7 +21,7 @@ import { business } from '@/data/site'
           </svg>
           {{ contact.email }}
         </a>
-        <span class="text-sage/40" aria-hidden="true">·</span>
+        <span v-if="contact.email" class="text-sage/40" aria-hidden="true">·</span>
         <a
           :href="contact.facebookUrl"
           target="_blank"
