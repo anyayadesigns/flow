@@ -6,7 +6,7 @@
 // ──────────────────────────────────────────────────────────────
 
 export const business = {
-  name: 'Anyaya Design',
+  name: 'Anyaya Designs',
   tagline: 'Digital Invitations & RSVP Websites',
   // Turnaround na ginagamit sa stats at FAQ — iisa lang ang pinagmumulan.
   turnaround: '3 days',

@@ -4,7 +4,7 @@
 export const contact = {
   email: '', // <-- ilagay ang totoong email kapag meron na (blangko = naka-disable)
   facebookUrl: 'https://facebook.com/rsvplounge', // <-- palitan ng FB page link mo
-  facebookLabel: 'Anyaya Design', // <-- ipapakitang text
+  facebookLabel: 'Anyaya Designs', // <-- ipapakitang text
 }
 
 export const mailtoInquiry = contact.email
