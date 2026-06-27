@@ -34,9 +34,9 @@ function scrollTo(id) {
     <!-- Hero — cinematic full-photo -->
     <section class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center">
       <img :src="d.heroImage" alt="" class="absolute inset-0 h-full w-full object-cover animate-kenburns" />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/75" aria-hidden="true" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#3b3a35]/55 via-[#3b3a35]/45 to-[#3b3a35]/80" aria-hidden="true" />
       <!-- Center vignette para basahin ang text -->
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,0,0,0.5)_0%,_transparent_62%)]" aria-hidden="true" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(59,58,53,0.5)_0%,_transparent_62%)]" aria-hidden="true" />
 
       <div class="relative max-w-2xl text-white">
         <p v-reveal class="font-script text-3xl text-white/90 [text-shadow:0_2px_12px_rgb(0_0_0/0.5)] sm:text-4xl">

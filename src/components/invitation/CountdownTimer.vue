@@ -7,6 +7,9 @@ const props = defineProps({
   targetDate: { type: String, required: true },
   // Tailwind text color para sa numbers, hal. "text-rose-600"
   accentClass: { type: String, default: 'text-indigo-600' },
+  // Kulay ng hati at label — para gumana rin sa dark background.
+  dividerClass: { type: String, default: 'divide-bark/10' },
+  labelClass: { type: String, default: 'text-bark/45' },
 })
 
 const now = ref(new Date())
@@ -50,7 +53,8 @@ const pad = (n) => String(n).padStart(2, '0')
   <div class="flex justify-center">
     <div
       v-if="!remaining.done"
-      class="flex items-stretch divide-x divide-bark/10"
+      class="flex items-stretch divide-x"
+      :class="dividerClass"
     >
       <div
         v-for="unit in units"
@@ -63,7 +67,10 @@ const pad = (n) => String(n).padStart(2, '0')
         >
           {{ pad(unit.value) }}
         </span>
-        <span class="mt-2.5 block text-[0.55rem] font-medium uppercase tracking-[0.22em] text-bark/45 sm:text-xs sm:tracking-[0.3em]">
+        <span
+          class="mt-2.5 block text-[0.55rem] font-medium uppercase tracking-[0.22em] sm:text-xs sm:tracking-[0.3em]"
+          :class="labelClass"
+        >
           {{ unit.label }}
         </span>
       </div>
