@@ -1,13 +1,24 @@
 <!-- Floating background-music toggle para sa demos. Umiikot ang button habang tumutugtog. -->
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-// Naka-import mula src/assets — bina-bundle ni Vite (gumagana kahit sa /flow/ GitHub Pages).
-import songUrl from '@/assets/mp3/song.mp3'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
-defineProps({
-  // Para sa aria-label lang; iisa ang audio file (song.mp3) sa lahat ng demo.
+// Lahat ng mp3 sa src/assets/mp3/ — bina-bundle ni Vite (gumagana sa /flow/ GitHub Pages).
+// Bawat demo may sariling kanta: wedding.mp3, debut.mp3, birthday.mp3.
+const modules = import.meta.glob('../../assets/mp3/*.mp3', { eager: true, query: '?url', import: 'default' })
+const byName = {}
+for (const [path, url] of Object.entries(modules)) {
+  byName[path.split('/').pop()] = url
+}
+
+const props = defineProps({
+  // Filename ng kanta para sa demong ito, hal. "debut.mp3"
   src: { type: String, default: '' },
 })
+
+// Piliin ang tamang kanta; kung wala pa ang file, mag-fallback sa wedding.mp3.
+const songUrl = computed(
+  () => byName[props.src] || byName['wedding.mp3'] || Object.values(byName)[0] || ''
+)
 
 const audio = ref(null)
 const playing = ref(false)

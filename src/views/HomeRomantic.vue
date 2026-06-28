@@ -98,11 +98,11 @@ const steps = [
   { n: '03', title: 'Share your link', desc: 'Send one link to every guest — and watch the RSVPs roll in.' },
 ]
 
-// Themed placeholder previews — palitan ng totoong screenshots/photos (public/images).
+// Elegante na line icons kada okasyon (sosyal — walang larawan).
 const featured = [
-  { to: '/demo/wedding', name: 'Wedding', sample: 'Juan & Maria', image: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=640&q=70&auto=format&fit=crop' },
-  { to: '/demo/debut', name: 'Debut', sample: 'Sofia Mae · 18th', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=640&q=70&auto=format&fit=crop' },
-  { to: '/demo/birthday', name: 'Birthday', sample: "Lucas' 5th", image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=640&q=70&auto=format&fit=crop' },
+  { to: '/demo/wedding', name: 'Wedding', sample: 'Juan & Maria', key: 'wedding' },
+  { to: '/demo/debut', name: 'Debut', sample: 'Sofia Mae · 18th', key: 'debut' },
+  { to: '/demo/birthday', name: 'Birthday', sample: "Lucas' 5th", key: 'birthday' },
 ]
 
 // Iba't ibang pangalan kaysa sa demo samples — para hindi malito (sample vs. totoong kliyente).
@@ -300,25 +300,37 @@ const faqs = [
         <RouterLink
           v-for="(demo, i) in featured"
           :key="demo.to"
+          v-reveal="i * 80"
           :to="demo.to"
-          class="group w-[82%] shrink-0 snap-center overflow-hidden rounded-3xl border border-sage/20 bg-cream transition hover:-translate-y-1 hover:shadow-lg hover:shadow-sage/10 md:w-auto md:shrink"
+          class="group flex w-[82%] shrink-0 snap-center flex-col items-center rounded-3xl border border-sage/20 bg-cream px-8 py-10 text-center transition hover:-translate-y-1 hover:border-sage/40 hover:shadow-lg hover:shadow-sage/10 md:w-auto md:shrink"
         >
-          <div class="relative aspect-[4/3] overflow-hidden bg-blush/50">
-            <img
-              :src="demo.image"
-              alt=""
-              loading="lazy"
-              class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-sage-deep/65 via-sage-deep/10 to-transparent" aria-hidden="true" />
-            <span class="absolute inset-x-0 bottom-4 px-4 text-center font-display text-2xl text-cream drop-shadow">
-              {{ demo.sample }}
-            </span>
-          </div>
-          <div class="flex items-center justify-between px-6 py-5">
-            <span class="font-display text-2xl text-sage-deep">{{ demo.name }}</span>
-            <span class="text-rosedust transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-          </div>
+          <!-- Elegant icon medallion -->
+          <span class="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blush/70 to-sage/15 text-sage-deep ring-1 ring-sage/15 transition group-hover:scale-105">
+            <!-- Wedding: interlocking rings -->
+            <svg v-if="demo.key === 'wedding'" class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <path d="m9 4 1.6 2.4M9 4 7.4 6.4M9 4H7.4" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="8.5" cy="15" r="5.5" />
+              <circle cx="15.5" cy="15" r="5.5" />
+            </svg>
+            <!-- Debut: gem / diamond -->
+            <svg v-else-if="demo.key === 'debut'" class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 4h14l3 5-10 11L2 9l3-5Z" />
+              <path d="M2 9h20M9.5 4 7 9l5 11M14.5 4 17 9l-5 11" />
+            </svg>
+            <!-- Birthday: cake -->
+            <svg v-else class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 20h16M4 20v-7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v7M4 14c1.3 1.4 2.7 1.4 4 0s2.7-1.4 4 0 2.7 1.4 4 0 2.7-1.4 4 0" />
+              <path d="M8 7V5M12 7V5M16 7V5" />
+              <circle cx="8" cy="3.5" r="0.6" fill="currentColor" /><circle cx="12" cy="3.5" r="0.6" fill="currentColor" /><circle cx="16" cy="3.5" r="0.6" fill="currentColor" />
+            </svg>
+          </span>
+
+          <span class="mt-5 font-display text-2xl text-sage-deep">{{ demo.name }}</span>
+          <span class="mt-1 text-sm text-bark/55">{{ demo.sample }}</span>
+          <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-rosedust">
+            View demo
+            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </span>
         </RouterLink>
       </div>
       <p class="mt-4 text-center text-xs tracking-wide text-bark/40 md:hidden">swipe to explore →</p>

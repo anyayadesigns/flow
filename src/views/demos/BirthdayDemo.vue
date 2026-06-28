@@ -64,18 +64,13 @@ function scrollTo(id) {
       </button>
     </section>
 
-    <!-- Countdown (framed panel) -->
-    <section id="party" class="bg-amber-50/60 px-6 py-20 sm:py-24">
-      <div
-        v-reveal
-        class="mx-auto max-w-xl rounded-[2rem] border border-amber-200 bg-cream/80 px-6 py-12 text-center shadow-lg shadow-amber-500/5 backdrop-blur sm:px-10"
-      >
-        <p class="text-xs uppercase tracking-[0.3em] text-amber-600">Party starts in</p>
-        <div class="mx-auto my-6 flex w-fit items-center gap-3 text-amber-500/70" aria-hidden="true">
-          <span class="h-px w-10 bg-amber-400/50" /><span class="text-sm">✿</span><span class="h-px w-10 bg-amber-400/50" />
-        </div>
-        <CountdownTimer :target-date="d.date" accent-class="text-amber-600" />
+    <!-- Countdown (clean) -->
+    <section id="party" class="bg-amber-50/60 px-6 py-20 text-center sm:py-24">
+      <p v-reveal class="text-xs uppercase tracking-[0.3em] text-amber-600">Party starts in</p>
+      <div v-reveal class="mx-auto my-6 flex w-fit items-center gap-3 text-amber-500/70" aria-hidden="true">
+        <span class="h-px w-10 bg-amber-400/50" /><span class="text-sm">✿</span><span class="h-px w-10 bg-amber-400/50" />
       </div>
+      <div v-reveal="100"><CountdownTimer :target-date="d.date" accent-class="text-amber-600" /></div>
     </section>
 
     <!-- About the Birthday Star (playful, pambata) -->
